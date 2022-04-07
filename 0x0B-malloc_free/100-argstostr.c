@@ -1,43 +1,44 @@
-#include "holberton.h"
+#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
+
 /**
-* argstostr - function
-* @ac: arg1
-* @av: arg2
-*
-* Description: concatenate all args of your program
-* Return: ptr to new str or null if fail
-*/
+ *argstostr - Do somethng
+ * Desc: argstostr function
+ * @ac: int type
+ * @av: int type
+ * Return: Return
+ **/
 char *argstostr(int ac, char **av)
 {
-	char *array;
-	int x, y, z = 0;
-	int strlen = 0;
+int i, j, x = 0, y = 0;
+char *s;
+if (ac == 0 || av == NULL)
+return (NULL);
 
-	if (ac == 0 || av == NULL)
-	{
-		return (NULL);
-	}
-	for (x = 0; x < ac; x++)
-	{
-		for (y = 0; av[x][y]; y++)
-			strlen++;
-	}
+for (i = 0; i < ac; i++)
+{
+for (j = 0; av[i][j]; j++)
 
-	array = malloc(sizeof(char) * (strlen + ac + 1));
-	if (array == NULL)
-	{
-		return (NULL);
-	}
-	for (x = 0; x < ac; x++)
-	{
-		for (y = 0; av[x][y]; y++, z++)
-		{
-			array[z] = av[x][y];
-		}
-			array[z] = '\n';
-			z++;
-	}
-	array[z + 1] = '\0';
-	return (array);
+y++;
+y++;
+
+}
+y++;
+s = malloc(y *sizeof(char));
+if (s == NULL)
+return (NULL);
+
+for (i = 0; i < ac; i++)
+{
+for (j = 0; av[i][j]; j++)
+{
+s[x] = av[i][j];
+x++;
+}
+s[x] = '\n';
+x++;
+}
+s[x] = '\0';
+return (s);
 }

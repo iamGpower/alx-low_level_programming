@@ -1,19 +1,20 @@
-#include "holberton.h"
+#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
+
 /**
-* free_grid - function
-* @grid: dbl pointer
-* @height: height
-*
-* Description: frees a 2d grid.
-* Return: nothing
-*/
+ *free_grid - Do somethng
+ * Desc: free_grid function
+ * @grid: int type
+ * @height: int type
+ * Return: Return
+ **/
 void free_grid(int **grid, int height)
 {
-	int i;
-
-	for (i = 0; i < height; i++)
-		free(grid[i]);
-
-	free(grid);
+int a;
+for (a = 0; a < height; a++)
+{
+free(grid[a]);
+}
+free(grid);
 }

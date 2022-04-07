@@ -1,18 +1,25 @@
-#include "main.h"
+#include "holberton.h"
+#define NULL 0
 /**
- * _strchr - locates a character in a string,
- * @s: string.
- * @c: character.
- * Return: the pointer to the first occurrence of the character c.
- */
+* _strchr - function
+* @s: string to search in
+* @c: char to return
+*
+* Description: function to locate a character in a string
+* Return: pointer with first c or NULL if none
+*/
 char *_strchr(char *s, char c)
 {
-unsigned int i = 0;
-
-for (; *(s + i) != '\0'; i++)
-if (*(s + i) == c)
-return (s + i);
-if (*(s + i) == c)
-return (s + i);
-return ('\0');
+	for (;; s++)
+	{
+		if (*s == c)
+		{
+			return (s);
+		}
+	if (*s == c && c == NULL)
+		return (s);
+	if (*s == NULL)
+		break;
+	}
+	return (NULL);
 }

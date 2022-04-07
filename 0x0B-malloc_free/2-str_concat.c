@@ -1,50 +1,65 @@
-#include "main.h"
-#include <stdio.h>
+#include "holberton.h"
 #include <stdlib.h>
-
+#include <stdio.h>
+int _strlen(char *s);
 /**
- *str_concat - concatenates two stirng.
- * Desc: _strdup function
- * @s1: char type
- * @s2: char type
- * Return: Return leng
- **/
+* str_concat - function
+* @s1: string one to combine to
+* @s2: string two to combine to
+*
+* Description: concat str1 into new memory along with str2
+* Return: both s1 and s2, or null if fail.
+*/
 char *str_concat(char *s1, char *s2)
 {
-int x = 0, y = 0, f, m, l;
-char *leng;
+	char *combo;
+	int i, j, k;
 
-if (s1 == NULL)
-s1 = "";
-if (s2 == NULL)
-s2 = "";
+	if (s1 == NULL)
+	{
+		s1 = "";
+	}
+	if (s2 == NULL)
+	{
+		s2 = "";
+	}
+	combo = malloc((_strlen(s1) + _strlen(s2) + 1) * sizeof(char));
+	if (combo == NULL)
+	{
+		return (NULL);
+	}
+	i = 0;
 
-while (s1[x] != '\0')
+	for (j = 0; s1[j]; j++)
+	{
+		combo[i] = s1[j];
+		i++;
+	}
 
-x++;
-
-while (s2[y] != '\0')
-
-y++;
-y++;
-
-f = x + y;
-
-leng = malloc(sizeof(char) * f);
-
-if (leng == NULL)
-return (NULL);
-
-for (m = 0; m < x; m++)
-{
-leng[m] = s1[m];
+	for (k = 0; s2[k]; k++)
+	{
+		combo[i] = s2[k];
+		i++;
+	}
+	combo[i] = '\0';
+	return (combo);
 }
 
-for (l = 0; l < y; m++, l++)
+/**
+* _strlen - function
+* @s: first operand & pointer
+*
+* Description: function that returns the length of a string
+* Return: Always 0
+*/
+int _strlen(char *s)
 {
-leng[m] = s2[l];
-}
+	int index = 0;
 
-return (leng);
-
+	while (*s != '\0')
+	{
+		index++;
+		s++;
+	}
+	return (index);
 }

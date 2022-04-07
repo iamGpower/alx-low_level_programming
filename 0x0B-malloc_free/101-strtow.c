@@ -1,47 +1,41 @@
-#include "main.h"
+#include "holberton.h"
 #include <stdlib.h>
 #include <stdio.h>
+int _strlen(char *s);
 /**
- * _realloc - reallocates old to new, set conditions from problem
- * returning dest w/ size of malloc new_size, set src as ptr
- * @ptr: pointer to memory prev alloc, must free end
- * @old_size: input old
- * @new_size: input new
- * Return: 0
- */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+* strtow - function
+* @str: string to split
+*
+* Description: function to split a string into words
+* Return: pointer or NULL if fail
+*/
+char **strtow(char *str)
 {
-	char *dest, *src;
-	unsigned int i;
+	char **split;
 
-	if (new_size == old_size)
-		return (ptr);
-
-	if (ptr == NULL)
-	{
-		ptr = malloc(new_size);
-		if (ptr == NULL)
-		{
-			return (NULL);
-		}
-		return (ptr);
-	}
-
-	if (new_size == 0 && ptr != NULL)
-	{
-		free(ptr);
+	split = malloc(_strlen(str) * sizeof(char *));
+	if (str == NULL)
 		return (NULL);
-	}
-
-	dest = malloc(new_size);
-	if (dest == NULL)
+	if (split == NULL)
 		return (NULL);
 
-	src = ptr;
+	return (split);
+}
+/**
+* _strlen - function
+* @s: first operand & pointer
+*
+* Description: function that returns the length of a string
+* Return: Always 0
+*/
+int _strlen(char *s)
+{
+	int index = 0;
 
-	for (i = 0; i < new_size && i < old_size; i++)
-		dest[i] = src[i];
-	free(ptr);
-
-	return (dest);
+	while (*s != '\0')
+	{
+		index++;
+		s++;
+	}
+	return (index);
 }
